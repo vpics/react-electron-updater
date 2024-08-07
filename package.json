@@ -1,9 +1,18 @@
 {
   "name": "react-with-electron",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.1.0",
   "main": "electron-main.js",
   "homepage": "./",
+  "license": "ISC",
+  "description": "",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "electron": "electron .",
+    "dist": "electron-builder"
+  },
   "author": {
     "name": "React Electron, Inc.",
     "email": "support@react.com",
@@ -12,6 +21,13 @@
   "build": {
     "appId": "com.react-electron.autoupdater",
     "productName": "React Electron App",
+    "files": [
+      "build/**/*",
+      "electron-main.js"
+    ],
+    "extraMetadata": {
+      "main": "electron-main.js"
+    },
     "linux": {
       "target": [
         "deb"
@@ -19,9 +35,12 @@
     },
     "win": {
       "target": "NSIS"
+    },
+    "directories": {
+      "output": "dist"
     }
   },
-  "repository": "https://github.com/vpics/react-electron-updator",  
+  "repository": "https://github.com/vpics/react-electron-updator",
   "publish": {
     "provider": "github",
     "releaseType": "release"
@@ -30,18 +49,11 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "electron-updater": "^6.2.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "electron": "electron .",
-    "dist": "electron-builder"
   },
   "eslintConfig": {
     "extends": [
@@ -63,7 +75,6 @@
   },
   "devDependencies": {
     "electron": "^31.3.1",
-    "electron-builder": "^24.13.3",
-    "electron-updater": "^6.2.1"
+    "electron-builder": "^24.13.3"
   }
 }

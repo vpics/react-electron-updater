@@ -13,10 +13,10 @@ function createWindow() {
     },
   });
 
-  mainWindow.loadFile(path.join(__dirname, "build/index.html"));
-  // mainWindow.loadURL("http://localhost:3000");
-
-  updateInterval = setInterval(() => autoUpdater.checkForUpdates(), 600000);
+  // mainWindow.loadFile(path.join(__dirname, "build/index.html"));
+  mainWindow.loadURL("http://localhost:3000");
+  // updateInterval = setInterval(() => autoUpdater.checkForUpdates(), 600000);
+  autoUpdater.checkForUpdates();
 
 }
 
@@ -35,12 +35,13 @@ app.on("activate", () => {
 });
 
 autoUpdater.on("update-available", (_event, releaseNotes, releaseName) => {
+  console.log("updates")
   const dialogOpts = {
-     type: 'info',
-     buttons: ['Ok'],
-     title: 'Update Available',
-     message: process.platform === 'win32' ? releaseNotes : releaseName,
-     detail: 'A new version download started. The app will be restarted to install the update.'
+    type: "info",
+    buttons: ["Ok"],
+    title: "Update Available",
+    detail:
+      "A new version download started. The app will be restarted to install the update.",
   };
   dialog.showMessageBox(dialogOpts);
 
@@ -49,13 +50,13 @@ autoUpdater.on("update-available", (_event, releaseNotes, releaseName) => {
 
 autoUpdater.on("update-downloaded", (_event, releaseNotes, releaseName) => {
   const dialogOpts = {
-     type: 'info',
-     buttons: ['Restart', 'Later'],
-     title: 'Application Update',
-     message: process.platform === 'win32' ? releaseNotes : releaseName,
-     detail: 'A new version has been downloaded. Restart the application to apply the updates.'
+    type: "info",
+    buttons: ["Restart", "Later"],
+    title: "Application Update",
+    detail:
+      "A new version has been downloaded. Restart the application to apply the updates.",
   };
   dialog.showMessageBox(dialogOpts).then((returnValue) => {
-     if (returnValue.response === 0) autoUpdater.quitAndInstall()
+    if (returnValue.response === 0) autoUpdater.quitAndInstall();
   });
 });
