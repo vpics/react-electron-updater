@@ -17,7 +17,6 @@ function createWindow() {
   mainWindow.loadURL("https://react-electron-updator.vercel.app/");
   // updateInterval = setInterval(() => autoUpdater.checkForUpdates(), 600000);
   autoUpdater.checkForUpdates();
-
 }
 
 app.whenReady().then(createWindow);
