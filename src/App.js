@@ -17,7 +17,6 @@ function App() {
         >
           Learn React
         </a>
-        <div>This is updated version 1.2.0</div>
       </header>
     </div>
   );
