@@ -14,7 +14,7 @@ function createWindow() {
   });
 
   // mainWindow.loadFile(path.join(__dirname, "build/index.html"));
-  mainWindow.loadURL("http://localhost:3000");
+  mainWindow.loadURL("https://react-electron-updator.vercel.app/");
   // updateInterval = setInterval(() => autoUpdater.checkForUpdates(), 600000);
   autoUpdater.checkForUpdates();
 
