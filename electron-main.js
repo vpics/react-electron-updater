@@ -35,7 +35,7 @@ app.on("activate", () => {
 });
 
 autoUpdater.on("update-available", (_event, releaseNotes, releaseName) => {
-  console.log("updates")
+  console.log("updates-available");
   const dialogOpts = {
     type: "info",
     buttons: ["Ok"],
@@ -49,6 +49,7 @@ autoUpdater.on("update-available", (_event, releaseNotes, releaseName) => {
 });
 
 autoUpdater.on("update-downloaded", (_event, releaseNotes, releaseName) => {
+  console.log("updates-downloaded");
   const dialogOpts = {
     type: "info",
     buttons: ["Restart", "Later"],
