@@ -1,9 +1,9 @@
 {
   "name": "react-with-electron",
-  "version": "1.2.0",
-  "main": "electron-main.js",
+  "version": "1.0.0",
+  "main": "main.js",
   "homepage": "./",
-  "license": "ISC",
+  "license": "MIT",
   "description": "",
   "scripts": {
     "start": "react-scripts start",
@@ -24,10 +24,11 @@
     "productName": "React Electron App",
     "files": [
       "build/**/*",
-      "electron-main.js"
+      "main.js"
     ],
+    "extends": null,
     "extraMetadata": {
-      "main": "electron-main.js"
+      "main": "main.js"
     },
     "linux": {
       "target": [
